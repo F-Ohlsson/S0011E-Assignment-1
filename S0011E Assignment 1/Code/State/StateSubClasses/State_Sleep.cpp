@@ -13,7 +13,7 @@ void State_Sleep::Execute(Agent* agent) {
 
 	//Sleep while below 80% of max
 	if ((agent->energy < (agent->maxValue*0.8f)) && canSleep) {
-		agent->energy = agent->AddValue(agent->energy,agent->maxValue*0.3f);
+		agent->energy = agent->AddValue(agent->energy,agent->maxValue*0.4f);
 		std::cout << "Agent " << agent->ID << " (" << agent->name << ") " << "is sleeping.\n";
 	}
 	else {

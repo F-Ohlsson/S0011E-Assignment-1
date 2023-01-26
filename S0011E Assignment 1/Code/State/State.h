@@ -18,6 +18,6 @@ public:
 	void AddVisitor(Agent*);
 	void RemoveVisitor(Agent*);
 	std::vector<Agent*> GetVisitors();
-
+	bool TryToMeet(Agent*, std::vector<Agent*>);
 };
 

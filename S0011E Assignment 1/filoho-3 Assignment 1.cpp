@@ -16,13 +16,21 @@ int main()
     auto currentTime = latestUpdate;
     int interval = 2000; //Update interval
     float timeModifier = 1.0f; //Change to speed up time, 1.0f is real time
-    Agent* testAgent = new Agent(1);/*
+    Agent* testAgent = new Agent(1);
     Agent* testAgent2 = new Agent(2);
-    testAgent2->energy = 10;*/
+    testAgent2->energy = 10;
+
+    Agent* testAgent3 = new Agent(3);
+    testAgent3->energy = 50;
+
+    Agent* testAgent0 = new Agent(0);
+    testAgent0->energy = 70;
 
     std::vector<std::shared_ptr<Agent*>> agents;
+    agents.push_back(std::make_shared<Agent*>(testAgent0));
     agents.push_back(std::make_shared<Agent*>(testAgent));
-    //agents.push_back(testAgent2);
+    agents.push_back(std::make_shared<Agent*>(testAgent2));
+    agents.push_back(std::make_shared<Agent*>(testAgent3));
 
     std::cout << "Enter time modifier (1 is real time), one cycle is "<<interval <<" milliseconds: ";
     std::string input;
@@ -52,6 +60,7 @@ int main()
                     agents.erase(agents.begin() + i);
                     if (agents.size() == 0) {
                         std::cout << "All agents have died. They survived for " << cycles << " cycles.\n";
+                        system("pause");
                         return false;
                     }
                 }

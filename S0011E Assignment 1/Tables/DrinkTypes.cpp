@@ -7,7 +7,7 @@ DrinkTypes::DrinkTypes() {
 	DrinkVariant fWater = drink_fancyWater;
 	DrinkVariables fwaterVariables;
 	fwaterVariables.name = "fancy water";
-	fwaterVariables.hydrationValue = 30;
+	fwaterVariables.hydrationValue = 40;
 	fwaterVariables.uses = 2;
 	this->drinkDB.insert({ fWater, fwaterVariables });
 
@@ -16,7 +16,7 @@ DrinkTypes::DrinkTypes() {
 	DrinkVariables waterVariables;
 	waterVariables.name = "water";
 	waterVariables.hydrationValue = 15;
-	waterVariables.uses = 3;
+	waterVariables.uses = 2;
 	this->drinkDB.insert({ water, waterVariables });
 
 }

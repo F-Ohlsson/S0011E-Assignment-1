@@ -6,6 +6,8 @@ State_Eat::State_Eat() {
 
 
 void State_Eat::Execute(Agent* agent) {
+	this->TryToMeet(agent, this->currentVisitors);
+
 	if (this->HasFood(agent)) {
 		Food* food = this->FetchFood(agent);
 		agent->fullness = agent->AddValue(agent->fullness, food->Use());

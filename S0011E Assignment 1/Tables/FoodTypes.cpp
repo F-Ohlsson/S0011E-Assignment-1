@@ -7,7 +7,7 @@ FoodTypes::FoodTypes() {
 	FoodVariant bread = food_bread;
 	FoodVariables breadVariables;
 	breadVariables.name = "bread";
-	breadVariables.fullnessValue = 30;
+	breadVariables.fullnessValue = 40;
 	breadVariables.uses = 2;
 	this->foodDB.insert({ bread, breadVariables });
 

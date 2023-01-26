@@ -23,17 +23,20 @@ State_ReceiveMessage* State_ReceiveMessage::Instance() {
 }
 
 bool State_ReceiveMessage::OnMessage(Agent* agent, const Message& message) {
-	std::cout << "Inside Receive Message\n";
 	if (message.receiverID != agent->ID) {
 		std::cout << "DEBUG: Message has been sent to wrong agent.\nIntended Agent: " << message.receiverID << "\nActual Agent: " << agent->ID << "\n";
 	}
 	else {
 		switch (message.msgType) {
-		case msg_meetingCreate:
-			if (!agent->HasMeeting((Agent*)EntityManager::Instance()->FetchEntityByID(message.senderID))) {
+		case msg_meetingCreate: {
+			MeetingData* data = (MeetingData*)message.extraData;
+			Agent* meeter = (Agent*)EntityManager::Instance()->FetchEntityByID(message.senderID);
+			if (!agent->HasMeeting(meeter) && (!agent->HasMeeting(data->meetingDelay))) {
+				std::cout << "Agent " << agent->ID << " (" << agent->name << ") has accepted Agent " << message.senderID << " (" << meeter->name << ")'s invitation to hang out.\n";
 				this->CreateMeeting(agent, message); //If schedule clear
 			}
 			else { //If schedule full
+				std::cout << "Agent " << agent->ID << " (" << agent->name << ") has declined Agent " << message.senderID << " (" << meeter->name << ")'s invitation to hang out.\n";
 				Message cancelMsg;
 				cancelMsg.msgType = msg_meetingCancel;
 				cancelMsg.receiverID = message.senderID;
@@ -44,8 +47,12 @@ bool State_ReceiveMessage::OnMessage(Agent* agent, const Message& message) {
 				MessageManager::Instance()->QueueMessage(cancelMsg);
 			}
 			break;
+		}
 		case msg_meetingCancel:
 			this->CancelMeeting(agent, message);
+			break;
+		case msg_meetingEvent:
+			agent->HadMeeting((bool)&message.extraData);
 			break;
 		}
 	}

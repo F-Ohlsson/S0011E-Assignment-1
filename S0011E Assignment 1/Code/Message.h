@@ -5,6 +5,7 @@
 enum MsgType {
 	msg_meetingCreate,
 	msg_meetingCancel,
+	msg_meetingEvent,
 };
 
 struct Message {

@@ -33,22 +33,7 @@ void State_Work::Execute(Agent* agent) {
 		}
 	}
 	
-	if (this->currentVisitors.size() > 1) {
-		//Not alone!
-		//std::cout << "I'm not alone!\n";
-		for (int i = 0; i < this->currentVisitors.size(); i++) {
-			if((this->currentVisitors[i]->ID != agent->ID) && (this->currentVisitors[i]->location == agent->location)) {
-				if (!agent->HasMeeting(this->currentVisitors[i])) {
-					agent->ScheduleMeeting(this->currentVisitors[i]);
-				}
-				break;
-			}
-		}
-	}
-	else {
-		//Being alone is harsh on the mind
-		agent->socialNeeds = agent->SubtractValue(agent->socialNeeds, 2);
-	}
+	this->TryToMeet(agent, this->currentVisitors);
 
 	//Check if time to change states
 	if (agent->fullness < (agent->maxValue * 0.3)) {
@@ -59,7 +44,7 @@ void State_Work::Execute(Agent* agent) {
 		agent->ChangeState(State_Drink::Instance());
 		return;
 	}
-	else if (agent->energy < (agent->maxValue * 0.2)) {
+	else if (agent->energy < (agent->maxValue * 0.3)) {
 		agent->ChangeState(State_Sleep::Instance());
 		return;
 	}

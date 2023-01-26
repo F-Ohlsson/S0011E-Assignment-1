@@ -11,6 +11,8 @@ State_Drink* State_Drink::Instance() {
 }
 
 void State_Drink::Execute(Agent* agent) {
+	this->TryToMeet(agent, this->currentVisitors);
+
 	if (this->HasDrink(agent)) {
 		Drink* drink = this->FetchDrink(agent);
 		agent->hydration = agent->AddValue(agent->hydration, drink->Use());
@@ -23,6 +25,7 @@ void State_Drink::Execute(Agent* agent) {
 		agent->ChangeState(State_Shop::Instance());
 		return;
 	}
+
 
 	//If more hungry than thirsty, drink
 	if (agent->hydration > agent->fullness) {

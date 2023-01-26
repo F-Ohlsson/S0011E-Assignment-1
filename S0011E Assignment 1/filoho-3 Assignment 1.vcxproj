@@ -139,6 +139,7 @@
     <ClCompile Include="Code\State\State.cpp" />
     <ClCompile Include="Code\State\StateSubClasses\State_Drink.cpp" />
     <ClCompile Include="Code\State\StateSubClasses\State_Eat.cpp" />
+    <ClCompile Include="Code\State\StateSubClasses\State_HangOut.cpp" />
     <ClCompile Include="Code\State\StateSubClasses\State_ReceiveMessage.cpp" />
     <ClCompile Include="Code\State\StateSubClasses\State_Shop.cpp" />
     <ClCompile Include="Code\State\StateSubClasses\State_Sleep.cpp" />
@@ -163,6 +164,7 @@
     <ClInclude Include="Code\State\State.h" />
     <ClInclude Include="Code\State\StateSubClasses\State_Drink.h" />
     <ClInclude Include="Code\State\StateSubClasses\State_Eat.h" />
+    <ClInclude Include="Code\State\StateSubClasses\State_HangOut.h" />
     <ClInclude Include="Code\State\StateSubClasses\State_ReceiveMessage.h" />
     <ClInclude Include="Code\State\StateSubClasses\State_Shop.h" />
     <ClInclude Include="Code\State\StateSubClasses\State_Sleep.h" />

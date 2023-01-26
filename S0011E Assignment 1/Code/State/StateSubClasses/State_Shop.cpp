@@ -29,7 +29,7 @@ void State_Shop::Execute(Agent* agent) {
 	}
 
 	//Only buy food if more hungry than thirsty
-	if (!State_Eat::Instance()->HasFood(agent) && (agent->fullness <= agent->hydration)) {
+	if ((agent->fullness <= agent->hydration)) {
 		std::cout << "Agent " << agent->ID << " (" << agent->name << ") is looking to buy some food.\n";
 		for (int i = 0; i < store->GetInventorySize(); i++) {
 			Item item = store->GetInventoryAtIndex(i);
@@ -47,7 +47,7 @@ void State_Shop::Execute(Agent* agent) {
 		std::cout << "Agent " << agent->ID << " (" << agent->name << ") couldn't afford anything to eat.\n";
 	}
 
-	if (!State_Drink::Instance()->HasDrink(agent)) {
+	else {
 		std::cout << "Agent " << agent->ID << " (" << agent->name << ") is looking to buy something to drink.\n";
 		StoreInventory* store = StoreInventory::Instance();
 		for (int i = 0; i < store->GetInventorySize(); i++) {
@@ -65,7 +65,7 @@ void State_Shop::Execute(Agent* agent) {
 		std::cout << "Agent " << agent->ID << " (" << agent->name << ") couldn't afford anything to drink.\n";
 	}
 
-	if (agent->energy > (agent->maxValue * 0.2)) { //Go home and sleep if at 20% or less energy
+	if (agent->energy > (agent->maxValue * 0.3)) { //Go home and sleep if at 20% or less energy
 		agent->ChangeState(State_Work::Instance());
 	}
 	else {

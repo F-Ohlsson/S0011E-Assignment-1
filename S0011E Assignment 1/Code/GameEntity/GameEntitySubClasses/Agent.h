@@ -32,7 +32,12 @@ public:
 	void ChangeState(State* newState);
 	void HandleMessage(const Message);
 	bool HasMeeting(Agent* meeting);
+	bool HasMeeting(int meetingTime);
 	void ScheduleMeeting(Agent* meeting);
+	void ProgressSchedule();
+	bool TimeForMeeting();
+	void HadMeeting(bool);
+
 	void CheckHealth();
 	void CleanInventory();
 
