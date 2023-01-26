@@ -7,7 +7,6 @@
 class State_Work : public State
 {
 private:
-	int location;
 	State_Work();
 
 public:

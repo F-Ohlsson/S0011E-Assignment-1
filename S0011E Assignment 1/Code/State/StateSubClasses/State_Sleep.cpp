@@ -40,11 +40,3 @@ State_Sleep* State_Sleep::Instance() {
 
 	return &instance;
 }
-
-void State_Sleep::ListVisitors() {
-	std::cout << "The current agents at home are: \n";
-	for (int i = 0; i < this->currentVisitors.size(); i++) {
-		std::cout << "Agent number " << " (" << this->currentVisitors[i]->name << ") " << this->currentVisitors[i]->ID << ".\n";
-	}
-	std::cout << "That's it.\n";
-}

@@ -12,5 +12,4 @@ public:
 	void Exit(Agent* agent);
 	static State_HangOut* Instance();
 
-	void ListVisitors();
 };

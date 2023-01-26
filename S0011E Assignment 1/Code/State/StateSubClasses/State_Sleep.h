@@ -13,5 +13,4 @@ public:
 	void Exit(Agent* agent);
 	static State_Sleep* Instance();
 
-	void ListVisitors();
 };
