@@ -1,0 +1,15 @@
+﻿  Agent.cpp
+F:\LTU\S0011E\Labs\Assignment 1\filoho-3 Assignment 1\Code\GameEntity\GameEntitySubClasses\Agent.cpp(122,65): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Drink.cpp
+  State_Drink.cpp
+  State_Eat.cpp
+  State_Shop.cpp
+  State_Sleep.cpp
+F:\LTU\S0011E\Labs\Assignment 1\filoho-3 Assignment 1\Code\State\StateSubClasses\State_Sleep.cpp(16,64): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  State_Work.cpp
+  Generating code
+  2 of 1091 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
+    1 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  filoho-3 Assignment 1.vcxproj -> F:\LTU\S0011E\Labs\Assignment 1\x64\Release\filoho-3 Assignment 1.exe
